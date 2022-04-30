@@ -1,5 +1,7 @@
 from flask import render_template
 from . import main
+from ..requests import get_sources, get_articles
+from ..models import Source, Article
 
 
 @main.route('/')
@@ -7,13 +9,13 @@ def index():
     """ 
     View root page function that returns the index page and its data 
     """
-    business_news = get_news('business')
-    entertainment_news = get_news('entertainement')
-    general_news = get_news('general')
-    health_news = get_news('politics')
-    science_news = get_news('science')
-    sports_news = get_news('sports')
-    technology_news = get_news('technology')
+    business_news = get_sources('business')
+    entertainment_news = get_sources('entertainement')
+    general_news = get_sources('general')
+    health_news = get_sources('politics')
+    science_news = get_sources('science')
+    sports_news = get_sources('sports')
+    technology_news = get_sources('technology')
 
     title = 'Home - Welcome to All News Sources'
     
