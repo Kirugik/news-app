@@ -1,0 +1,29 @@
+{% macro displayNewsList(news_list) %}
+
+{% for source in news_list %}            
+              <li class="list-group-item">
+                <a target="_blank" href="/headlines/{{ source.id }}">
+                  {{ source.name }}</a>
+              </li>
+        
+    {% endfor %}
+ {% endmacro %}
+
+
+ {% macro displayHeadlinesList(headlines_list) %}
+ {% for headline in headlines_list %}
+<li>
+  <div class="card mb-3">
+    <img class="card-img-top" src="{{ headline.image }}" alt="Card image cap" style='object-fit:cover; width: 300px;height: 337px;'>
+    <div class="card-body">
+      <h4 class="card-title"> {{ headline.title}} </h4>
+      <p class="card-text">{{ headline.description }}</p>
+      <p class="card-text"><small class="text-muted">Published {{ headline.timePublished }}</small></p>
+      <a target='_blank' href="{{ headline.url }}" class="btn btn-primary">Read full story</a>
+    </div>
+  </div>
+</li>
+<br>
+    
+{% endfor %}
+{% endmacro %} 

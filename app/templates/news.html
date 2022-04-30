@@ -1,0 +1,13 @@
+<div>
+  {% extends 'base.html'%}
+  {% import 'macros.html' as macro%}
+  
+  {% block content %}
+  <h2> Top Headlines </h2>
+  <br>
+  <ol style='list-style-type: none;'>
+    {{ macro.displayHeadlinesList(headlines)}}
+  </ol>
+    
+  {% endblock %}
+</div> 
