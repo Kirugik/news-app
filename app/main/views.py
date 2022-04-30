@@ -16,4 +16,5 @@ def index():
     technology_news = get_news('technology')
 
     title = 'Home - Welcome to All News Sources'
+    
     return render_template('index.html', title=title,business=business_news,entertainment=entertainment_news,general=general_news,health=health_news,science=science_news,sports=sports_news,technology=technology_news)
