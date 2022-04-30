@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-md-4">
+        <h3 class="card-header"> Business News</h3>
+        <div style="overflow: auto; width:auto; height:400px;">
+
+            <ol class="card-text">
+                {{ macro.displayNewsList(business)}}
+            </ol>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-4">
+        <h3 class="card-header"> General News</h3>
+        <div style="overflow: auto; width:auto; height:400px;">
+            <ol class="card-text">
+                {{ macro.displayNewsList(general)}}
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h3 class="card-header"> Technology News</h3>
+            <div class="ex1">
+                <ol class="card-text">
+                    {{ macro.displayNewsList(technology)}}
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %} 
