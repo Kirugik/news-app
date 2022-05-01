@@ -1,32 +1,30 @@
-from flask import render_template
+from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import get_sources, get_articles
-from ..models import Source, Article
+from ..requests import get_news,get_news_articles
 
 
-@main.route('/')
+#views
+@main.route("/")
 def index():
-    """ 
-    View root page function that returns the index page and its data 
     """
-    business_news = get_sources('business')
-    entertainment_news = get_sources('entertainement')
-    general_news = get_sources('general')
-    health_news = get_sources('politics')
-    science_news = get_sources('science')
-    sports_news = get_sources('sports')
-    technology_news = get_sources('technology')
+    View root page that returns the index page and its data
+    """
+    #getting news
+    general_news = get_news("general")
 
-    title = 'Home - Welcome to All News Sources'
-    
-    return render_template('index.html', title=title,business=business_news,entertainment=entertainment_news,general=general_news,health=health_news,science=science_news,sports=sports_news,technology=technology_news)
+    search_article = request.args.get('news_query')
+
+    if search_article:
+        return redirect(url_for('search', article_name=search_article))
+    else:
+        return render_template("index.html", general = general_news) 
+
 
 
 @main.route('/articles/<id>')
 def articles(id):
-    """  
-    View function to display articles from different sources
-    """
-    articles = get_articles(id)
-    title = f'{id}'
-    return render_template('news.html',title=title,articles=articles)
+    '''
+    View article function that returns the articles in a source
+    '''
+    articles = get_news_articles(id)
+    return render_template('articles.html', id = id, articles = articles)
