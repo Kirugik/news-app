@@ -7,17 +7,23 @@
 
 {% block content %}
 <div class="container-fluid" >
-    <div class="row" >
+    <div class="row">
 
         {% for article in articles %}
         <div class="col-md-4" >
-            <div class="card border-danger" style="min-height: 450px; background-color: darkgrey; margin-bottom: 15px;">
+            <div class="card border-danger" style="min-height: 450px; margin-bottom: 20px;">
                 <div class="card-header" >
-                    <h4 class="title" style="padding: 15px;">
+                    <h4 class="title" style="padding-top: 15px; padding-right: 15px; padding-left: 15px; color: blue;">
                         {{article.title}}
                     </h4> 
+                    <p class="author" style="padding-left: 15px;">
+                        By {{article.author}}
+                    </p>
+                    <p class="date" style="padding-left: 15px;">
+                        {{article.publishedAt}} 
+                    </p>
                 </div>
-                <div class="card-body text-danger" style="padding-left: 15px; padding-right: 15px;">
+                <div class="card-body" style="padding-left: 15px; padding-right: 15px;">
                     <p class="desc">{{article.description}}</p>
                     <div class="article-img">
                         <img src="{{article.urlToImage}}" class="img-responsive" alt="image" style="height: 200px;">
