@@ -11,13 +11,8 @@ def index():
     """
     #getting news
     general_news = get_news("general")
-
-    search_article = request.args.get('news_query')
-
-    if search_article:
-        return redirect(url_for('search', article_name=search_article))
-    else:
-        return render_template("index.html", general = general_news) 
+    
+    return render_template("index.html", general = general_news) 
 
 
 

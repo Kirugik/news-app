@@ -42,9 +42,9 @@ def process_results(news_list):
     """
     Function that processes the news results and transform them into a list of objects
     Args:
-    news_list: a list of dictionaries that contain news details
+        news_list: a list of dictionaries that contain news details
     Returns:
-    News_results: A list of news objects
+        News_results: A list of news objects
     """
     news_results = []
 
@@ -55,14 +55,13 @@ def process_results(news_list):
         description = news_item.get("description")
         country = news_item.get("country")
         urlToImage = news_item.get("urlToImage")
-        #overview = news_item.get("overview")
-        #poster = news_item.get("poster_path")
 
         if url:
             news_object = Source(id,name, url, description, country, urlToImage)
             news_results.append(news_object)
     
     return news_results
+
 
 
 def get_news_articles(id):
@@ -79,6 +78,7 @@ def get_news_articles(id):
             articles_results = process_articles(articles_results_list)
             
     return articles_results
+
 
 
 def process_articles(articles_list):
@@ -100,22 +100,3 @@ def process_articles(articles_list):
                 articles_results.append(articles_object)
             
     return articles_results
-
-
-def get_top_headlines():
-    '''
-    Function that gets news source articles headlines
-    '''
-    get_top_headlines_url = 'https://newsapi.org/v2/top-headlines?country=us&sortBy=publishedAt&apiKey={}'.format(api_key)
-
-    with urllib.request.urlopen(get_top_headlines_url) as url:
-        get_top_headlines_data = url.read()
-        get_top_headlines_response = json.loads(get_top_headlines_data)
-
-        get_top_headlines_object = None
-
-        if get_top_headlines_response['articles']:
-            get_top_headlines_list = get_top_headlines_response['articles']
-            get_top_headlines_object = process_articles(get_top_headlines_list)
-
-    return get_top_headlines_object
