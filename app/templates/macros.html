@@ -1,14 +1,12 @@
 {%  extends 'base.html'  %}
 {% macro displayNewsList(news_list) %}
-
-<div class="container">
-    <h3 class="header">Top News Sources</h3>
-    {% for news in news_list %}
-    
+<div class="container-fluid">
+    <h3 class="header" style="text-align: center; font-weight: bold;">Top News Sources</h3>
     <div class="row">
+        
+        {% for news in news_list %}
         <div class="col-md-3">
             <div class="card" style="margin-bottom: 25px;">
-                
                 <div class="card-body" style="min-height: 250px; background-color: azure;">
                     <div class="source-name" style="font-weight: bold; color: blue;">
                         {{news.name}}
@@ -20,8 +18,7 @@
                 </div>
             </div>
         </div>
-        {% endfor %}   
+        {% endfor %}
     </div>
 </div>
-
 {% endmacro %}
