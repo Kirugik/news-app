@@ -15,21 +15,23 @@
                 <div class="card-header" >
                     <h4 class="title" style="padding-top: 15px; padding-right: 15px; padding-left: 15px; color: blue;">
                         {{article.title}}
-                    </h4> 
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <p class="desc" style="padding-left: 15px;">
+                        {{article.description}}
+                    </p>
                     <p class="author" style="padding-left: 15px;">
-                        By {{article.author}}
+                        By <span style="font-weight: bold;">{{article.author}} </span> 
                     </p>
                     <p class="date" style="padding-left: 15px;">
                         {{article.publishedAt}} 
                     </p>
-                </div>
-                <div class="card-body" style="padding-left: 15px; padding-right: 15px;">
-                    <p class="desc">{{article.description}}</p>
                     <div class="article-img">
-                        <img src="{{article.urlToImage}}" class="img-responsive" alt="image" style="height: 200px;">
+                        <img src="{{article.urlToImage}}" class="img-responsive" alt="image" style="height: 200px; padding-left: 15px;">
                     </div>
                     <div>
-                        <a href="{{article.url}}" class="btn btn-primary" target="_blank" style="font-style: italic; margin-top: 10px;">Read full story</a>
+                        <a href="{{article.url}}" class="btn btn-primary" target="_blank" style="font-style: italic; margin-top: 10px; margin-left: 15px;">Read full story</a>
                     </div>
                 </div>
             </div>
